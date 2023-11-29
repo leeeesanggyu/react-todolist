@@ -1,30 +1,23 @@
 import React from 'react';
-
-function Header() {
-    return <header>
-        <h2>안녕하세요, 이상규의 투두리스트 입니다.</h2>
-    </header>
-}
-
-function Main() {
-    return <nav>
-        <p><a href="/">메인 이동 샤샥</a></p>
-    </nav>
-}
-
-function Post() {
-    return <article>
-        <li><a href="/post/1">게시물 1</a></li>
-        <li><a href="/post/2">게시물 2</a></li>
-    </article>
-}
+import Header from './main/header'
+import Main from './main/main'
+import Post from "./main/post";
+import Article from "./main/article";
+import {TopicType} from "./main/topicType"
 
 function App() {
+    const topics: TopicType[] = [
+        {id: 1, title: 'html', body: 'html is ...'},
+        {id: 2, title: 'css', body: 'css is ...'},
+        {id: 3, title: 'javascript', body: 'javascript is ...'}
+    ]
+
   return (
     <div>
-        <Header></Header>
-        <Main></Main>
-        <Post></Post>
+        <Header title="To-do list"></Header>
+        <Main/>
+        <Article topic={topics}/>
+        <Post title="게시물"/>
     </div>
   );
 }
