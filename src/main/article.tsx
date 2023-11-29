@@ -1,18 +1,16 @@
 import React from "react";
 import {TopicType} from "./topicType";
 
-type  ArticleProps = {
+type Props = {
     topic:Array<TopicType>
 }
 
-function Article(topics: ArticleProps) {
-    const topicData: any = [];
-    topics.topic.forEach(t =>
-        topicData.push(<li key={t.id}>{t.title}, {t.body}</li>)
-    )
-
+function Article(props: Props) {
+    let articles = props.topic.map(t =>
+        <li key={t.id}>{t.title}, {t.body}</li>
+    );
     return <article>
-        <ol>{topicData}</ol>
+        <ol>{articles}</ol>
     </article>
 }
 
