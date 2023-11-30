@@ -1,12 +1,19 @@
 import React from "react";
 
-type HeaderProps = {
+type Props = {
     title: string;
+    onChangeMode(): void;
 }
 
-function Header(headerProps: HeaderProps) {
+function Header(props: Props) {
     return <header>
-        <h2>{headerProps.title}</h2>
+        <h2
+            onClick={(event) :void => {
+                event.preventDefault();
+                props.onChangeMode();}}
+        >
+            {props.title}
+        </h2>
     </header>
 }
 

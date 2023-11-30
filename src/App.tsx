@@ -14,10 +14,12 @@ function App() {
 
   return (
     <div>
-        <Header title="To-do list"></Header>
+        <Header title="To-do list"
+            onChangeMode={(): void => alert("안녕하세요?")}></Header>
         <Main/>
         <Article topic={topics}/>
-        <Post title="게시물"/>
+        <Post title="게시물"
+            onChangeMode={(id: number): void => alert(id)}/>
     </div>
   );
 }
