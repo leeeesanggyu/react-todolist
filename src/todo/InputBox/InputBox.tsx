@@ -1,7 +1,7 @@
 import React, {PropsWithChildren, useEffect, useState} from "react";
 
 type Props = {
-    addTodo: (_:string)=>void;
+    addTodo: (_: string) => void;
 }
 
 export default function InputBox({addTodo}:Props) {
@@ -13,6 +13,7 @@ export default function InputBox({addTodo}:Props) {
 
     const onClick = () => {
         addTodo(text);
+        setText('');
     }
 
     return (

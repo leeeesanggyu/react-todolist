@@ -1,14 +1,21 @@
 import React, {PropsWithChildren} from "react";
 import Todo from "./Todo";
+import {TodoItem} from "../type/TodoItem";
 
 type Props = {
-    todoList: string[];
+    todoList: TodoItem[];
+    deleteFlagChange: (_:string) => void;
 }
 
-export default function TodoList({todoList}: Props) {
+export default function TodoList(props: Props) {
     return (
         <div>
-            {todoList.map((todo: string) => <Todo todo={todo}/>)}
+            {props.todoList.map(
+                (todo: TodoItem) => <Todo
+                    todo={todo}
+                    deleteFlagChange={props.deleteFlagChange}
+                />
+            )}
         </div>
     );
 }
