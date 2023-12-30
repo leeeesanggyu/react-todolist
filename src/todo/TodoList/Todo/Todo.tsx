@@ -1,4 +1,4 @@
-import React, {PropsWithChildren} from "react";
+import React, {useState} from "react";
 import {TodoItem} from "../../type/TodoItem";
 
 type Props = {
@@ -7,9 +7,22 @@ type Props = {
 }
 
 export default function Todo(props: Props) {
+    const [isClicked, setIsClicked] = useState(false);
+
+    const handleClick = () => {
+        setIsClicked(!isClicked);
+    };
+
+    const textStyle = {
+        textDecoration: isClicked ? 'line-through' : 'none',
+        cursor: 'pointer',
+    };
+
     return (
         <div>
-            {props.todo.text}
+            <span onClick={handleClick} style={textStyle}>
+                {props.todo.text}
+            </span>
             <input
                 onChange={() => props.deleteFlagChange(props.todo.id)}
                 type="checkbox"
