@@ -1,4 +1,5 @@
 import React, {PropsWithChildren, useEffect, useState} from "react";
+import styles from "../SubButton.module.css";
 
 type Props = {
     deleteTodo: ()=>void;
@@ -11,8 +12,11 @@ export default function DeleteButton({deleteTodo}:Props) {
     }
 
     return (
-        <span>
-            <button onClick={() => onClick()}>Delete</button>
-        </span>
+        <div>
+            <button
+                onClick={() => onClick()}
+                className={styles.button}
+            >Delete</button>
+        </div>
     );
 }

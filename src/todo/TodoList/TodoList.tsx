@@ -10,8 +10,8 @@ type Props = {
 export default function TodoList(props: Props) {
     return (
         <div>
-            {props.todoList.map(
-                (todo: TodoItem) => <Todo
+            {props.todoList.map((todo: TodoItem) =>
+                <Todo
                     todo={todo}
                     deleteFlagChange={props.deleteFlagChange}
                 />

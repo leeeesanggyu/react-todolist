@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Container from "./todo/Container";
 import InputBox from "./todo/InputBox";
 import TodoList from "./todo/TodoList";
-import DeleteButton from "./todo/DeleteButton";
+import DeleteButton from "./todo/SubButton/DeleteButton";
 import {TodoItem} from "./todo/type/TodoItem";
 import { v4 as uuidv4 } from 'uuid';
 import {text} from "stream/consumers";
