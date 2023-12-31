@@ -26,7 +26,7 @@ export default function Todo(props: Props) {
             <input
                 onChange={() => props.deleteFlagChange(props.todo.id)}
                 type="checkbox"
-                checked={props.todo.deleteFlag}
+                checked={props.todo.checked}
             />
         </div>
     );

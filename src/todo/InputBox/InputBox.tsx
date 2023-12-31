@@ -17,9 +17,9 @@ export default function InputBox({addTodo}:Props) {
     }
 
     return (
-        <div>
+        <span>
             <input value={text} onChange={(e) => onChange(e.target.value)}/>
             <button onClick={() => onClick()}>Enter</button>
-        </div>
+        </span>
     );
 }

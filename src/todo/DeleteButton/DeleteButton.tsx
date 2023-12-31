@@ -11,8 +11,8 @@ export default function DeleteButton({deleteTodo}:Props) {
     }
 
     return (
-        <div>
+        <span>
             <button onClick={() => onClick()}>Delete</button>
-        </div>
+        </span>
     );
 }

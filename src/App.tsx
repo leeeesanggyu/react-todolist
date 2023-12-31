@@ -5,7 +5,11 @@ import TodoList from "./todo/TodoList";
 import DeleteButton from "./todo/DeleteButton";
 import {TodoItem} from "./todo/type/TodoItem";
 import { v4 as uuidv4 } from 'uuid';
+import {text} from "stream/consumers";
 
+/**
+ * LocalStorage에 저장해서 값 불러오기
+ */
 export default function App (){
     const [todoItemList,setTodoItemList] = useState<TodoItem[]>([]);
 
@@ -13,12 +17,12 @@ export default function App (){
         const newTodoItem: TodoItem = {
             id: uuidv4(),
             text,
-            deleteFlag: false
+            checked: false
         };
         setTodoItemList([...todoItemList, newTodoItem]);
     }
 
-    const deleteFlagChange = (id: string) => {
+    const onCheckedChange = (id: string) => {
         const index = todoItemList.findIndex(
             todo => todo.id === id
         );
@@ -28,7 +32,7 @@ export default function App (){
 
             updatedList[index] = {
                 ...updatedList[index],
-                deleteFlag: !updatedList[index].deleteFlag
+                checked: !updatedList[index].checked
             };
 
             setTodoItemList(updatedList);
@@ -37,7 +41,7 @@ export default function App (){
 
     const deleteTodo = () => {
         const updatedList = todoItemList.filter(
-            todoItem => !todoItem.deleteFlag
+            todoItem => !todoItem.checked
         );
         setTodoItemList(updatedList);
     }
@@ -45,8 +49,8 @@ export default function App (){
     return (
         <Container>
             <InputBox addTodo={addTodo}/>
-            <TodoList todoList={todoItemList} deleteFlagChange={deleteFlagChange}/>
             <DeleteButton deleteTodo={deleteTodo}/>
+            <TodoList todoList={todoItemList} deleteFlagChange={onCheckedChange}/>
         </Container>
     );
 }
