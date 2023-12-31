@@ -1,6 +1,7 @@
-import React, {PropsWithChildren} from "react";
+import React from "react";
 import Todo from "./Todo";
 import {TodoItem} from "../type/TodoItem";
+import styles from "./TodoList.module.css";
 
 type Props = {
     todoList: TodoItem[];
@@ -9,7 +10,7 @@ type Props = {
 
 export default function TodoList(props: Props) {
     return (
-        <div>
+        <div className={styles.TodoList}>
             {props.todoList.map((todo: TodoItem) =>
                 <Todo
                     todo={todo}

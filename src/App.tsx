@@ -48,6 +48,7 @@ export default function App (){
 
     return (
         <Container>
+            <h2>TO-DO List</h2>
             <InputBox addTodo={addTodo}/>
             <DeleteButton deleteTodo={deleteTodo}/>
             <TodoList todoList={todoItemList} deleteFlagChange={onCheckedChange}/>
