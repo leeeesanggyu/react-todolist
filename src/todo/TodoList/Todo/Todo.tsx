@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {TodoItem} from "../../type/TodoItem";
+import * as STC from './Todo.style';
 
 type Props = {
     todo: TodoItem;
@@ -15,14 +16,13 @@ export default function Todo(props: Props) {
 
     const textStyle = {
         textDecoration: isClicked ? 'line-through' : 'none',
-        cursor: 'pointer',
     };
 
     return (
         <div>
-            <span onClick={handleClick} style={textStyle}>
+            <STC.Todo onClick={handleClick} style={textStyle}>
                 {props.todo.text}
-            </span>
+            </STC.Todo>
             <input
                 onChange={() => props.deleteFlagChange(props.todo.id)}
                 type="checkbox"

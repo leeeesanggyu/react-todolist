@@ -1,5 +1,5 @@
 import React, {PropsWithChildren} from "react";
-import styles from "./Container.module.css";
+import * as STC from './Container.style';
 
 type Props = PropsWithChildren<{
 
@@ -7,8 +7,8 @@ type Props = PropsWithChildren<{
 
 export default function Container({children} :Props) {
     return (
-        <div className={styles.container}>
+        <STC.Container>
             {children}
-        </div>
+        </STC.Container>
     );
 }

@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import styles from "./InputBox.module.css";
+import * as STC from './InputBox.style';
 
 type Props = {
     addTodo: (_: string) => void;
@@ -18,17 +18,15 @@ export default function InputBox({addTodo}:Props) {
     }
 
     return (
-        <div className={styles.inputBoxEnter}>
-            <input
-                className={styles.inputBox}
+        <STC.Wrapper>
+            <STC.Input
                 value={text}
                 onChange={(e) => onChange(e.target.value)}
                 placeholder='할 일을 입력해주세요.'
             />
-            <button
-                className={styles.enter}
+            <STC.Enter
                 onClick={() => onClick()}
-            >Enter</button>
-        </div>
+            >Enter</STC.Enter>
+        </STC.Wrapper>
     );
 }

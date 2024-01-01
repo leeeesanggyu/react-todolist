@@ -1,5 +1,5 @@
-import React, {PropsWithChildren, useEffect, useState} from "react";
-import styles from "../SubButton.module.css";
+import React from "react";
+import * as STC from '../SubButton.style';
 
 type Props = {
     deleteTodo: ()=>void;
@@ -12,11 +12,9 @@ export default function DeleteButton({deleteTodo}:Props) {
     }
 
     return (
-        <div>
-            <button
-                onClick={() => onClick()}
-                className={styles.button}
-            >Delete</button>
-        </div>
+        <STC.Button
+            onClick={() => onClick()}>
+            Delete
+        </STC.Button>
     );
 }

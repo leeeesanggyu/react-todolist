@@ -46,8 +46,11 @@ export default function App (){
         setTodoItemList(updatedList);
     }
 
+    const [theme,setTheme] = useState('LIGHT');
+
+
     return (
-        <Container>
+        <Container >
             <h2>TO-DO List</h2>
             <InputBox addTodo={addTodo}/>
             <DeleteButton deleteTodo={deleteTodo}/>
